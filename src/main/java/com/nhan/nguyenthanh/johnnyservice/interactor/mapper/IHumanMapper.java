@@ -6,6 +6,7 @@ import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Mapper(componentModel = "cdi", collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED, imports = {LocalDate.class})
 public interface IHumanMapper {

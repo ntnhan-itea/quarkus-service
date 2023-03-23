@@ -18,4 +18,7 @@ public class CsvPerson extends CsvBean {
 
     @CsvBindByName(column = "age")
     private int age;
+
+    @CsvBindByName(column = "City code")
+    private String cityCode;
 }

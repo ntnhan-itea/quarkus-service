@@ -14,10 +14,12 @@ import java.util.List;
 @ApplicationScoped
 public class CsvBeanService {
 
+    public static final char SEPARATOR = ',';
+
     public <T extends CsvBean> CsvToBean<T> getDefaultCsvBean(InputStream inputStream, Class<T> classType) {
         return new CsvToBeanBuilder<T>(new BufferedReader(new InputStreamReader(inputStream, Charsets.UTF_8)))
                 .withType(classType)
-                .withSeparator(',')
+                .withSeparator(SEPARATOR)
                 .withIgnoreLeadingWhiteSpace(true)
                 .withIgnoreEmptyLine(true)
                 .build();

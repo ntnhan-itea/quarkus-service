@@ -1,8 +1,8 @@
 package com.nhan.nguyenthanh.johnnyservice.service;
 
 import com.nhan.nguyenthanh.johnnyservice.interactor.mapper.IHumanMapper;
-import com.nhan.nguyenthanh.johnnyservice.model.CsvBean;
 import com.nhan.nguyenthanh.johnnyservice.model.CsvPerson;
+import com.nhan.nguyenthanh.johnnyservice.model.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
@@ -12,8 +12,11 @@ import javax.inject.Inject;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 @Slf4j
@@ -28,13 +31,11 @@ public class FileService {
     @Inject
     IHumanMapper humanMapper;
 
-    public void initialLoadFinmaBrokers(MultipartFormDataInput formData) {
+    public Map<String, List<Person>> parsingPeople(MultipartFormDataInput formData) {
         log.info("Start initial load version finma ID ...");
         try (InputStream csvInputStreamData = getCsvData(formData).getBody(InputStream.class, null)) {
             List<CsvPerson> allCsvObjects = this.csvBeanService.getAllCsvObjects(csvInputStreamData, CsvPerson.class);
-
-            humanMapper.convertToPerson(allCsvObjects.get(0));
-//            return processInitialLoadFinmaBrokers(allCsvObjects);
+            return this.importPerson(allCsvObjects);
         } catch (IOException e) {
             String message = e.getMessage();
             log.error(message);
@@ -42,6 +43,14 @@ public class FileService {
         } finally {
             log.info("Finished initial load");
         }
+    }
+
+
+    private Map<String, List<Person>> importPerson(List<CsvPerson> csvPersonList) {
+        return Optional.ofNullable(csvPersonList).stream()
+                .flatMap(Collection::stream)
+                .map(humanMapper::convertToPerson)
+                .collect(Collectors.groupingBy(e -> e.getCityCode().trim()));
     }
 
 

@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.validation.constraints.NotBlank;
+
 @NoArgsConstructor
 @Setter
 @Getter
@@ -14,4 +16,7 @@ public class Person {
     private String name;
 
     private int age;
+
+    @NotBlank(message = "City code should not be missing")
+    private String cityCode;
 }
