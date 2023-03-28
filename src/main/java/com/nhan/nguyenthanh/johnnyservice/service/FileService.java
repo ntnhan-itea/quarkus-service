@@ -2,7 +2,10 @@ package com.nhan.nguyenthanh.johnnyservice.service;
 
 import com.nhan.nguyenthanh.johnnyservice.interactor.mapper.IHumanMapper;
 import com.nhan.nguyenthanh.johnnyservice.model.CsvPerson;
+import com.nhan.nguyenthanh.johnnyservice.model.Student;
 import com.nhan.nguyenthanh.johnnyservice.model.Person;
+import com.nhan.nguyenthanh.johnnyservice.model.PersonDto;
+import com.nhan.nguyenthanh.johnnyservice.model.StudentDto;
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
@@ -33,6 +36,8 @@ public class FileService {
 
     public Map<String, List<Person>> parsingPeople(MultipartFormDataInput formData) {
         log.info("Start initial load version finma ID ...");
+        this.TestMethod();
+
         try (InputStream csvInputStreamData = getCsvData(formData).getBody(InputStream.class, null)) {
             List<CsvPerson> allCsvObjects = this.csvBeanService.getAllCsvObjects(csvInputStreamData, CsvPerson.class);
             return this.importPerson(allCsvObjects);
@@ -45,6 +50,19 @@ public class FileService {
         }
     }
 
+    private void TestMethod() {
+        StudentDto studentDto = new StudentDto();
+        studentDto.setCodeStudent("B1805797");
+
+        PersonDto personDto = new PersonDto();
+        personDto.setAge(18);
+        personDto.setCityCode("65");
+        personDto.setName("Thanh Cong");
+        personDto.setStudent(studentDto);
+
+        Person person = this.humanMapper.convertToPerson(personDto);
+        System.out.println(person.toString());
+    }
 
     private Map<String, List<Person>> importPerson(List<CsvPerson> csvPersonList) {
         return Optional.ofNullable(csvPersonList).stream()

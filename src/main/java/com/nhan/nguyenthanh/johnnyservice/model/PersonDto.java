@@ -1,25 +1,26 @@
 package com.nhan.nguyenthanh.johnnyservice.model;
 
-
-import com.opencsv.bean.CsvBindByName;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
-public class CsvPerson extends CsvBean {
+import javax.validation.constraints.NotBlank;
 
-    @CsvBindByName(column = "name")
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class PersonDto {
+
     private String name;
 
-    @CsvBindByName(column = "age")
     private int age;
 
-    @CsvBindByName(column = "City code")
+    @NotBlank(message = "City code should not be missing")
     private String cityCode;
 
+    private StudentDto student;
 }

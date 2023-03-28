@@ -19,4 +19,6 @@ public class Person {
 
     @NotBlank(message = "City code should not be missing")
     private String cityCode;
+
+    private Student student;
 }
