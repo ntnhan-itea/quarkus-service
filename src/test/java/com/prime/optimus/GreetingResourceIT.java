@@ -1,4 +1,4 @@
-package com.nhan.nguyenthanh;
+package com.prime.optimus;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

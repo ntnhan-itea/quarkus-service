@@ -1,10 +1,10 @@
-package com.nhan.nguyenthanh.johnnyservice.interactor.mapper;
+package com.prime.optimus.midjourneydigital.interactor.mapper;
 
-import com.nhan.nguyenthanh.johnnyservice.model.CsvPerson;
-import com.nhan.nguyenthanh.johnnyservice.model.Student;
-import com.nhan.nguyenthanh.johnnyservice.model.Person;
-import com.nhan.nguyenthanh.johnnyservice.model.PersonDto;
-import com.nhan.nguyenthanh.johnnyservice.model.StudentDto;
+import com.prime.optimus.midjourneydigital.model.CsvPerson;
+import com.prime.optimus.midjourneydigital.model.Student;
+import com.prime.optimus.midjourneydigital.model.Person;
+import com.prime.optimus.midjourneydigital.model.PersonDto;
+import com.prime.optimus.midjourneydigital.model.StudentDto;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

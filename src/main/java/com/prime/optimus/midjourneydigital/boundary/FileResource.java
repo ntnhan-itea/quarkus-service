@@ -1,5 +1,6 @@
-package com.nhan.nguyenthanh.johnnyservice.boundary;
+package com.prime.optimus.midjourneydigital.boundary;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -11,9 +12,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.nhan.nguyenthanh.johnnyservice.model.InitialLoadFileToUpload;
-import com.nhan.nguyenthanh.johnnyservice.model.Person;
-import com.nhan.nguyenthanh.johnnyservice.service.FileService;
+import com.prime.optimus.midjourneydigital.model.InitialLoadFileToUpload;
+import com.prime.optimus.midjourneydigital.service.FileService;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBodySchema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
@@ -21,9 +21,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
-
-import java.util.List;
-import java.util.Map;
 
 @ApplicationScoped
 @Path("files")
@@ -54,6 +51,13 @@ public class FileResource {
                 .status(Response.Status.CREATED)
                 .entity(this.fileService.parsingPeople(file))
                 .build();
+    }
+
+    @GET
+    @Produces({MediaType.TEXT_PLAIN})
+    @RolesAllowed({"read", "User"})
+    public String getString() {
+        return "hello";
     }
 
 }

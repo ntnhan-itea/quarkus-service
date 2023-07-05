@@ -1,11 +1,10 @@
-package com.nhan.nguyenthanh.johnnyservice.service;
+package com.prime.optimus.midjourneydigital.service;
 
-import com.nhan.nguyenthanh.johnnyservice.interactor.mapper.IHumanMapper;
-import com.nhan.nguyenthanh.johnnyservice.model.CsvPerson;
-import com.nhan.nguyenthanh.johnnyservice.model.Student;
-import com.nhan.nguyenthanh.johnnyservice.model.Person;
-import com.nhan.nguyenthanh.johnnyservice.model.PersonDto;
-import com.nhan.nguyenthanh.johnnyservice.model.StudentDto;
+import com.prime.optimus.midjourneydigital.interactor.mapper.IHumanMapper;
+import com.prime.optimus.midjourneydigital.model.CsvPerson;
+import com.prime.optimus.midjourneydigital.model.Person;
+import com.prime.optimus.midjourneydigital.model.PersonDto;
+import com.prime.optimus.midjourneydigital.model.StudentDto;
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;

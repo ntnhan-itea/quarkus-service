@@ -1,6 +1,6 @@
-package com.nhan.nguyenthanh.johnnyservice.service;
+package com.prime.optimus.midjourneydigital.service;
 
-import com.nhan.nguyenthanh.johnnyservice.model.CsvBean;
+import com.prime.optimus.midjourneydigital.model.CsvBean;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.apache.james.mime4j.Charsets;
@@ -16,6 +16,9 @@ public class CsvBeanService {
 
     public static final char SEPARATOR = ',';
 
+//    @Inject
+//    Logger LOGGER;
+
     public <T extends CsvBean> CsvToBean<T> getDefaultCsvBean(InputStream inputStream, Class<T> classType) {
         return new CsvToBeanBuilder<T>(new BufferedReader(new InputStreamReader(inputStream, Charsets.UTF_8)))
                 .withType(classType)
@@ -29,7 +32,8 @@ public class CsvBeanService {
         try {
             return this.getDefaultCsvBean(ips, clazz).parse();
         } catch (Exception e) {
-            throw new IllegalArgumentException("Cannot parse data from SVC file to model");
+//            LOGGER.error("Cannot parse data from CSV file to model");
+            throw e;
         }
     }
 }

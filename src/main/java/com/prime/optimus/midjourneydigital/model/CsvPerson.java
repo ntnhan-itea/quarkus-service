@@ -1,4 +1,4 @@
-package com.nhan.nguyenthanh.johnnyservice.model;
+package com.prime.optimus.midjourneydigital.model;
 
 
 import com.opencsv.bean.CsvBindByName;

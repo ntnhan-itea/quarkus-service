@@ -1,4 +1,4 @@
-package com.nhan.nguyenthanh;
+package com.prime.optimus;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
