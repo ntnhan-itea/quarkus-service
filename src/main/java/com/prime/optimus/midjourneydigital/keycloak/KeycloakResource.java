@@ -1,36 +1,25 @@
 package com.prime.optimus.midjourneydigital.keycloak;
 
-import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.representations.idm.UserRepresentation;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.inject.Named;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("keycloak/users")
 @ApplicationScoped
 public class KeycloakResource {
-
     @Inject
-    @RestClient
-    KeycloakApiClient keycloakApiClient;
+    @Named("keycloakBean")
+      Keycloak keycloak;
 
-    @Inject
-    Keycloak keycloak;
-
-//    @POST
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response createUser(UserDto user, @HeaderParam("Authorization") String authorization) {
-////        String accessToken = "Bearer YOUR_ACCESS_TOKEN"; // Obtain the access token from Keycloak
-//
-//        keycloakApiClient.createUser(user, "master", authorization);
-//
-//        return Response.status(Response.Status.CREATED).build();
-//    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
