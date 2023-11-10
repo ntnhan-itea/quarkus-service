@@ -60,3 +60,13 @@ If you want to learn more about building native executables, please consult http
 Easily start your RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+
+
+####
+
+docker run -d --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -p 9090:8080 quay.io/keycloak/keycloak:22.0.4 start-dev
+
+docker network create  midjourneydigital-network
+
+docker run -d --name midjourneydigital-db-postgres --network=midjourneydigital-network -e POSTGRES_DB=midjourneydigital-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=123 -p 5432:5432 postgres:13.6
+of

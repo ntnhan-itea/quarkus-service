@@ -1,31 +1,33 @@
 package com.prime.optimus.midjourneydigital.keycloak;
 
-import org.keycloak.admin.client.Keycloak;
+import io.quarkus.security.Authenticated;
 import org.keycloak.representations.idm.UserRepresentation;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("keycloak/users")
 @ApplicationScoped
 public class KeycloakResource {
-    @Inject
-    @Named("keycloakBean")
-      Keycloak keycloak;
+
+    @GET
+    @Path("ping")
+    @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed("admin1")
+    public String ping() {
+        return "alive";
+    }
 
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response createUser(UserRepresentation user) {
-        keycloak.realm("MyRealm").users().create(user);
-        return Response.status(Response.Status.CREATED).build();
+        return Response.status(Response.Status.CREATED)
+//                .entity(keycloak.realm("master").users().create(user))
+                .build();
     }
 }
