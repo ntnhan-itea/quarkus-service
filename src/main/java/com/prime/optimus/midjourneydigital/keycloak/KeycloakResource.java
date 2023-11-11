@@ -25,17 +25,10 @@ import javax.ws.rs.core.SecurityContext;
 public class KeycloakResource {
 
     @Inject
-    SecurityIdentity securityIdentity;
-
-    @Inject
     KeycloakService keycloakService;
 
     @Context
     SecurityContext securityContext;
-
-    @Inject
-    JsonWebToken jwt;
-
 
     @GET
     @Path("ping")
@@ -50,9 +43,12 @@ public class KeycloakResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
-    public Response createBasicUser(UserRepresentation user) {
+    public Response createBasicUser(UserDto user) {
         this.keycloakService.createUser(user);
-        return Response.status(Response.Status.CREATED).build();
+        return Response
+                .status(Response.Status.CREATED)
+                .entity("Created Keycloak user: " + user.getUsername())
+                .build();
     }
 
 }

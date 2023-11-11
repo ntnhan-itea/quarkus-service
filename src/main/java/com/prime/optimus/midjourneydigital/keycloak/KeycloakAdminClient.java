@@ -19,5 +19,5 @@ public interface KeycloakAdminClient {
     @Path("protocol/openid-connect/token")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    Map<String, String> getToken(Form keyCloak);
+    Map<String, String> getToken(Form formBody);
 }
