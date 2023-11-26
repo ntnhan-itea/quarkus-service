@@ -94,6 +94,8 @@ public class KeycloakService {
         try {
             UserRepresentation userRepresentation = KeycloakMapper.toUserRepresentation(user);
             userRepresentation.setGroups(List.of(propertiesService.getKeycloakGroupDefault()));
+            userRepresentation.setRealmRoles(List.of(propertiesService.getKeycloakRealmRoleBasic()));
+            userRepresentation.setEnabled(true);
             this.keycloakApiClient.createUser(userRepresentation);
 
             log.info(

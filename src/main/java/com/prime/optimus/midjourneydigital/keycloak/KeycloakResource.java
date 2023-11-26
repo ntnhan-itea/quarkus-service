@@ -42,7 +42,8 @@ public class KeycloakResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @PermitAll
+//    @PermitAll
+    @RolesAllowed("basic-user")
     public Response createBasicUser(UserDto user) {
         this.keycloakService.createUser(user);
         return Response

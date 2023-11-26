@@ -24,4 +24,7 @@ public class PropertiesService {
     @ConfigProperty(name = "keycloak.group.default.user.basic")
     String keycloakGroupDefault;
 
+    @ConfigProperty(name = "keycloak.realm.role.basic")
+    String keycloakRealmRoleBasic;
+
 }
