@@ -5,10 +5,14 @@ import com.prime.optimus.midjourneydigital.midjourney.Midjourney;
 import com.prime.optimus.midjourneydigital.product.Product;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
+import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -104,6 +108,17 @@ public class CounterResource {
         }
 
         return counter.get();
+    }
+
+    @GET
+    @Path("products")
+    @Produces(MediaType.APPLICATION_JSON)
+    @PermitAll
+    public Response getProducts() {
+        com.prime.optimus.midjourneydigital.counter.Product product = new com.prime.optimus.midjourneydigital.counter.Product();
+        product.setId("1");
+        product.setName("Nguyen Thanh Nhan");
+     return Response.ok(Arrays.asList(product, product, product)).build();
     }
 
 }
