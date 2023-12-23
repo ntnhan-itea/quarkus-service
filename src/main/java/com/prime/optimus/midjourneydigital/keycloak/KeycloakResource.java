@@ -9,6 +9,7 @@ import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -42,9 +43,9 @@ public class KeycloakResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-//    @PermitAll
-    @RolesAllowed("basic-user")
-    public Response createBasicUser(UserDto user) {
+    @PermitAll
+//    @RolesAllowed("basic-user")
+    public Response createBasicUser(@Valid UserDto user) {
         this.keycloakService.createUser(user);
         return Response
                 .status(Response.Status.CREATED)
