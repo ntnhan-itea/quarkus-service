@@ -10,12 +10,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Entity
 @Builder
+@Table(name = "map_enum")
 public class MapEnumEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
