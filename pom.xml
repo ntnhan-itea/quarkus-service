@@ -154,6 +154,13 @@
             <artifactId>quarkus-flyway</artifactId>
         </dependency>
 
+        <!-- Apache POI dependency for Excel -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.3</version> <!-- Check for the latest version -->
+        </dependency>
+
 
     </dependencies>
     <build>
