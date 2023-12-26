@@ -1,4 +1,4 @@
-package com.prime.optimus.midjourneydigital.test;
+package com.prime.optimus.midjourneydigital.mappingenum;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 

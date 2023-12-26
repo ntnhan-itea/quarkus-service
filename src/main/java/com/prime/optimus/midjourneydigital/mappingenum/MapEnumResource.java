@@ -1,4 +1,4 @@
-package com.prime.optimus.midjourneydigital.test;
+package com.prime.optimus.midjourneydigital.mappingenum;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
@@ -12,8 +12,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @ApplicationScoped
-@Path("test")
-@Tag(name = "TestResource")
+@Path("mapping-enum")
+@Tag(name = "Mapping Enum Resource")
 public class MapEnumResource {
 
     @Inject

@@ -1,4 +1,4 @@
-package com.prime.optimus.midjourneydigital.test;
+package com.prime.optimus.midjourneydigital.mappingenum;
 
 import javax.persistence.AttributeConverter;
 import java.util.Arrays;
