@@ -1,6 +1,7 @@
 package com.prime.optimus.midjourneydigital.mappingenum;
 
-import javax.persistence.AttributeConverter;
+import jakarta.persistence.AttributeConverter;
+
 import java.util.Arrays;
 import java.util.Objects;
 

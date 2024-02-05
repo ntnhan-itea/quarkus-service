@@ -1,11 +1,10 @@
 package com.prime.optimus.midjourneydigital.model;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-import javax.validation.constraints.NotBlank;
 
 @NoArgsConstructor
 @Setter

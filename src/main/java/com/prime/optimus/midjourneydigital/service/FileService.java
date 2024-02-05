@@ -5,13 +5,13 @@ import com.prime.optimus.midjourneydigital.model.CsvPerson;
 import com.prime.optimus.midjourneydigital.model.Person;
 import com.prime.optimus.midjourneydigital.model.PersonDto;
 import com.prime.optimus.midjourneydigital.model.StudentDto;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.core.MediaType;
 import lombok.extern.slf4j.Slf4j;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;

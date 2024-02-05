@@ -1,10 +1,10 @@
 package com.prime.optimus.midjourneydigital.audit;
 
 import com.prime.optimus.midjourneydigital.keycloak.KeycloakService;
+import jakarta.enterprise.inject.spi.CDI;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 
-import javax.enterprise.inject.spi.CDI;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
 
 public class AuditListener {

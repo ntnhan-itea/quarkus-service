@@ -2,16 +2,15 @@ package com.prime.optimus.midjourneydigital.keycloak;
 
 import com.prime.optimus.midjourneydigital.properties.PropertiesService;
 import io.quarkus.security.identity.SecurityIdentity;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.core.Form;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.jwt.Claims;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.keycloak.representations.IDToken;
 import org.keycloak.representations.idm.UserRepresentation;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.core.Form;
 import java.util.List;
 import java.util.Map;
 
@@ -109,5 +108,10 @@ public class KeycloakService {
             throw e;
         }
     }
+
+//    private void test() {
+//        List<String> list = new ArrayList<>();
+//        list.get
+//    }
 
 }

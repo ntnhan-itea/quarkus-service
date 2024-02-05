@@ -1,11 +1,11 @@
 package com.prime.optimus.midjourneydigital.service;
 
-import com.prime.optimus.midjourneydigital.model.CsvBean;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.prime.optimus.midjourneydigital.model.CsvBean;
+import jakarta.enterprise.context.ApplicationScoped;
 import org.apache.james.mime4j.Charsets;
 
-import javax.enterprise.context.ApplicationScoped;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;

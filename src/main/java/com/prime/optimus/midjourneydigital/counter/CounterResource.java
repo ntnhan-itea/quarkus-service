@@ -3,16 +3,20 @@ package com.prime.optimus.midjourneydigital.counter;
 import com.prime.optimus.midjourneydigital.anime.Anime;
 import com.prime.optimus.midjourneydigital.midjourney.Midjourney;
 import com.prime.optimus.midjourneydigital.product.Product;
+import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
-import javax.annotation.security.PermitAll;
-import javax.annotation.security.RolesAllowed;
-import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -118,7 +122,7 @@ public class CounterResource {
         com.prime.optimus.midjourneydigital.counter.Product product = new com.prime.optimus.midjourneydigital.counter.Product();
         product.setId("1");
         product.setName("Nguyen Thanh Nhan");
-     return Response.ok(Arrays.asList(product, product, product)).build();
+        return Response.ok(Arrays.asList(product, product, product)).build();
     }
 
 }

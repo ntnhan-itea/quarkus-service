@@ -1,5 +1,6 @@
 package com.prime.optimus.midjourneydigital.excelfile;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -10,7 +11,6 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import javax.enterprise.context.ApplicationScoped;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,7 +51,7 @@ public class ExcelService {
             return bos.toByteArray();
 
         } catch (IOException e) {
-          log.error("Cannot generate the XML file", e);
+            log.error("Cannot generate the XML file", e);
         }
 
         return new byte[0];
