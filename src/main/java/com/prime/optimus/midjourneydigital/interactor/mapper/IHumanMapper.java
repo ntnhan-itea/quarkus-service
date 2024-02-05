@@ -12,15 +12,16 @@ import org.mapstruct.Builder;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import org.mapstruct.TargetType;
 
 import java.time.LocalDate;
 
+import static org.mapstruct.MappingConstants.ComponentModel.JAKARTA;
+
 @Mapper(
-        componentModel = MappingConstants.ComponentModel.CDI,
+        componentModel = JAKARTA,
         collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,
         imports = {LocalDate.class},
         builder = @Builder(disableBuilder = true)

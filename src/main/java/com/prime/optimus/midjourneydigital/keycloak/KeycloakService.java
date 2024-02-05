@@ -109,9 +109,4 @@ public class KeycloakService {
         }
     }
 
-//    private void test() {
-//        List<String> list = new ArrayList<>();
-//        list.get
-//    }
-
 }

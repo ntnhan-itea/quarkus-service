@@ -16,10 +16,10 @@ import java.util.Map;
 import static org.keycloak.OAuth2Constants.SCOPE_PHONE;
 import static org.keycloak.representations.idm.CredentialRepresentation.PASSWORD;
 import static org.mapstruct.CollectionMappingStrategy.ADDER_PREFERRED;
-import static org.mapstruct.MappingConstants.ComponentModel.CDI;
+import static org.mapstruct.MappingConstants.ComponentModel.JAKARTA;
 
 @Mapper(
-        componentModel = CDI,
+        componentModel = JAKARTA,
         collectionMappingStrategy = ADDER_PREFERRED,
         imports = {LocalDate.class}
 )
